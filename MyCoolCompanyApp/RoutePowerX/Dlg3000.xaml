@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyCoolCompanyApp.RoutePowerX.Dlg3000"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <controls:ImageButton Source="Review.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="0"  Grid.Column="0" Text="Review Visits" >
+            </controls:ImageButton>
+            <controls:ImageButton Source="CustInvn.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="0" Grid.Column="1" Text="Inventory" >
+            </controls:ImageButton>
+            <controls:ImageButton Source="rtebklg.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="1" Grid.Column="0" Text="Order" >
+            </controls:ImageButton>
+            <controls:ImageButton Source="Invoice.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="1" Grid.Column="1" Text="Invoice" >
+            </controls:ImageButton>
+            <controls:ImageButton Source="ARColl.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="2" Grid.Column="0" Text="A/R Collection" >
+            </controls:ImageButton>
+            <controls:ImageButton Source="Information.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="2" Grid.Column="1" Text="Information" >
+            </controls:ImageButton>
+            <controls:ImageButton Source="MerchLg.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="3" Grid.Column="0" Text="Merchandising" >
+            </controls:ImageButton>
+            <controls:ImageButton Source="TrfArwR.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="3" Grid.Column="1" Text="Continue" >
+            </controls:ImageButton>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

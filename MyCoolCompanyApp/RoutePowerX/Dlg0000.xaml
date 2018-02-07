@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyCoolCompanyApp.RoutePowerX.Dlg0000"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <controls:ImageButton Source="StartDay.jpg" ContentLayout="Top,5" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="0"  Grid.Column="0" Text="Start Day" >
+            </controls:ImageButton>
+            <controls:ImageButton Source="Inventory.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="0" Grid.Column="1" Text="Inventory" >
+            </controls:ImageButton>
+            <controls:ImageButton Source="ServiceCustomer.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="1" Grid.Column="0" Text="Customer Ops" >
+            </controls:ImageButton>
+            <controls:ImageButton Source="EndDay.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="1" Grid.Column="1" Text="End Day" >
+            </controls:ImageButton>
+            <controls:ImageButton Source="Review.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="2" Grid.Column="0" Text="Review" >
+            </controls:ImageButton>
+            <controls:ImageButton Source="Information.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="2" Grid.Column="1" Text="Information" >
+            </controls:ImageButton>
+            <controls:ImageButton Source="TransmitData.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="3" Grid.Column="0" Text="Transmit Data" >
+            </controls:ImageButton>
+            <controls:ImageButton Source="Setup.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="3" Grid.Column="1" Text="Setup" >
+            </controls:ImageButton>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

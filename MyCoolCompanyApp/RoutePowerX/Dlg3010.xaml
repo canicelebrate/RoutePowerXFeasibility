@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyCoolCompanyApp.RoutePowerX.Dlg3010"
+             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms">
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="SizeProportional">
+            <dg:DataGrid x:Name="MyGrid" ItemsSource="{Binding Items}"  SelectionEnabled="True" SelectedItem="{Binding SelectedItem,Mode=TwoWay}"
+                   RowHeight="40" HeaderHeight="0" BorderColor="#CCCCCC" HeaderBackground="DarkGray" BackgroundColor="White" MinimumHeightRequest="300"  HeightRequest="500">
+                <dg:DataGrid.Columns>
+                    <dg:DataGridColumn Title="Image" PropertyName="ImgSrc" Width="1.5*">
+                        <dg:DataGridColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentView HorizontalOptions="Fill" VerticalOptions="Fill" >
+                                    <Image Source="{Binding}" WidthRequest="50" HeightRequest="30" VerticalOptions="Center"></Image>
+                                </ContentView>
+                            </DataTemplate>
+                        </dg:DataGridColumn.CellTemplate>
+                    </dg:DataGridColumn>
+                    <dg:DataGridColumn Title="Numer" PropertyName="CustomerNumber" Width="2*">
+                        <dg:DataGridColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentView HorizontalOptions="Fill" VerticalOptions="Fill" >
+                                    <Label Text="{Binding}" HorizontalOptions="Fill" VerticalOptions="Center" TextColor="Black"/>
+                                </ContentView>
+                            </DataTemplate>
+                        </dg:DataGridColumn.CellTemplate>
+                    </dg:DataGridColumn>
+                    <dg:DataGridColumn Title="Name" PropertyName="CustomerName" Width="6*">
+                        <dg:DataGridColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentView HorizontalOptions="Fill" VerticalOptions="Fill" >
+                                    <Label Text="{Binding}" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                                </ContentView>
+                            </DataTemplate>
+                        </dg:DataGridColumn.CellTemplate>
+                    </dg:DataGridColumn>
+
+
+                </dg:DataGrid.Columns>
+                <dg:DataGrid.RowsBackgroundColorPalette>
+                    <dg:PaletteCollection>
+                        <Color>#F2F2F2</Color>
+                        <Color>#FFFFFF</Color>
+                    </dg:PaletteCollection>
+                </dg:DataGrid.RowsBackgroundColorPalette>
+            </dg:DataGrid>
+
+            <Grid AbsoluteLayout.LayoutBounds="0,1,1,80" AbsoluteLayout.LayoutFlags="WidthProportional,YProportional" Padding="0" Margin="0" RowSpacing="0" ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackLayout Orientation="Vertical" Grid.ColumnSpan="4">
+                    <Label Text="{Binding Path= SelectedItem.Address}" HorizontalOptions="Fill"></Label>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="{Binding Path= SelectedItem.PayType}" VerticalOptions="Fill"></Label>
+                        <Label Text="{Binding Path= SelectedItem.PhoneNumber}" VerticalOptions="Fill" HorizontalOptions="FillAndExpand"></Label>
+                    </StackLayout>
+                </StackLayout>
+                <controls:ImageButton Source="Detail.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="80" Grid.Column="4" Text="Detail" >
+                </controls:ImageButton>
+            </Grid>
+        </StackLayout>
+        <Grid AbsoluteLayout.LayoutBounds="0,1,1,80" AbsoluteLayout.LayoutFlags="WidthProportional,YProportional" Padding="0" Margin="0" RowSpacing="0" ColumnSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <controls:ImageButton Source="ExitDrLg.jpg" Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="65" Grid.Column="0" Text="Exit" >
+            </controls:ImageButton>
+
+            <controls:ImageButton Source="BinocsMd.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="65" Grid.Column="1" Text="Find" >
+            </controls:ImageButton>
+
+            <controls:ImageButton Source="EdtCstMd.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="65" Grid.Column="2" Text="Edit" >
+            </controls:ImageButton>
+
+            <controls:ImageButton Source="NoIntlMd.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="65" Grid.Column="3" Text="NSale" >
+            </controls:ImageButton>
+
+            <controls:ImageButton Source="SelectMd.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="65" Grid.Column="4" Text="Select" >
+            </controls:ImageButton>
+        </Grid>
+    </AbsoluteLayout>
+</ContentPage>

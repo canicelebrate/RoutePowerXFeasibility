@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyCoolCompanyApp.RoutePowerX.Dlg3300"
+             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             Title="Dlg3300">
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="SizeProportional">
+            <StackLayout Orientation="Horizontal" HeightRequest="40">
+                <Picker x:Name="MyPicker" ItemsSource="{Binding InvTypes}" SelectedItem="{Binding SelectedInvType}" WidthRequest="150" ></Picker>
+                <Label Text="Item" WidthRequest="45" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                <Entry Text="{Binding Path=SelectedItem.ItemNumber}" IsEnabled="False" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"></Entry>
+            </StackLayout>
+
+
+            <dg:DataGrid x:Name="MyGrid" ItemsSource="{Binding Items}"  SelectionEnabled="True" SelectedItem="{Binding SelectedItem,Mode=TwoWay}"
+                   RowHeight="40" HeaderHeight="30" BorderColor="#CCCCCC" HeaderBackground="DarkGray" HeightRequest="300">
+                <dg:DataGrid.Columns>
+                    <dg:DataGridColumn Title="Name" PropertyName="Name" Width="6.5*">
+                        <dg:DataGridColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentView HorizontalOptions="Fill" VerticalOptions="Fill" >
+                                    <Label Text="{Binding}" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                                </ContentView>
+                            </DataTemplate>
+                        </dg:DataGridColumn.CellTemplate>
+                    </dg:DataGridColumn>
+                    <dg:DataGridColumn Title="Unit" PropertyName="UnitQty" Width="2*">
+                        <dg:DataGridColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentView HorizontalOptions="Fill" VerticalOptions="Fill" >
+                                    <Entry Text="{Binding}" HorizontalOptions="Fill" VerticalOptions="Center" TextColor="Black"/>
+                                </ContentView>
+                            </DataTemplate>
+                        </dg:DataGridColumn.CellTemplate>
+                    </dg:DataGridColumn>
+
+                    <dg:DataGridColumn Title="Case" PropertyName="CaseQty" Width="1.5*">
+                        <dg:DataGridColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentView HorizontalOptions="Fill" VerticalOptions="Fill" >
+                                    <Entry Text="{Binding}" HorizontalOptions="Fill" VerticalOptions="Center" TextColor="Black"/>
+                                </ContentView>
+                            </DataTemplate>
+                        </dg:DataGridColumn.CellTemplate>
+                    </dg:DataGridColumn>
+                </dg:DataGrid.Columns>
+                <dg:DataGrid.RowsBackgroundColorPalette>
+                    <dg:PaletteCollection>
+                        <Color>#F2F2F2</Color>
+                        <Color>#FFFFFF</Color>
+                    </dg:PaletteCollection>
+                </dg:DataGrid.RowsBackgroundColorPalette>
+            </dg:DataGrid>
+
+            <StackLayout Orientation="Horizontal" HeightRequest="40">
+                <Label Text="Onhnd" WidthRequest="45" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                <Entry Placeholder="1/3" IsEnabled="False" WidthRequest="120"  HorizontalTextAlignment="Start"></Entry>
+                <Label Text="Ord Pt" WidthRequest="45" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                <Entry Placeholder="0.0" IsEnabled="False" HorizontalOptions="FillAndExpand"  HorizontalTextAlignment="Start"></Entry>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HeightRequest="40">
+                <Label Text="Build" WidthRequest="165" HorizontalTextAlignment="End" VerticalTextAlignment="Center"></Label>
+                <Entry Keyboard="Numeric" WidthRequest="120"  HorizontalTextAlignment="Start" Text="{Binding Path=SelectedItem.BuildToUnitQty, Mode=TwoWay,Converter={StaticResource NullableIntToStringConverter}, ConverterParameter='d'}"></Entry>
+                <Entry Keyboard="Numeric" HorizontalOptions="FillAndExpand"   HorizontalTextAlignment="Start" Text="{Binding Path=SelectedItem.BuildToCaseQty, Mode=TwoWay, Converter={StaticResource NullableIntToStringConverter}, ConverterParameter='d'}"></Entry>
+            </StackLayout>
+
+        </StackLayout>
+        <Grid AbsoluteLayout.LayoutBounds="0,1,1,80" AbsoluteLayout.LayoutFlags="WidthProportional,YProportional" Padding="0" Margin="0" RowSpacing="0" ColumnSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <controls:ImageButton Source="ExitDrLg.jpg" Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="80" Grid.Column="0" Text="Exit" >
+            </controls:ImageButton>
+
+            <controls:ImageButton Source="More.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="80" Grid.Column="1" Text="More" >
+            </controls:ImageButton>
+
+            <controls:ImageButton Source="AddItem.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="80" Grid.Column="2" Text="Add" >
+            </controls:ImageButton>
+
+            <controls:ImageButton Source="History.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="80" Grid.Column="3" Text="Exit" >
+            </controls:ImageButton>
+
+            <controls:ImageButton Source="Detail.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="80" Grid.Column="4" Text="Detail" >
+            </controls:ImageButton>
+        </Grid>
+
+    </AbsoluteLayout>
+
+</ContentPage>
