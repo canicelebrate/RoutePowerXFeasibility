@@ -1,34 +1,42 @@
-﻿using System;
+﻿using Prism.Autofac;
+using System;
 
 using Xamarin.Forms;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+using Prism;
+using Prism.Ioc;
+using XLabs.Forms.Services;
 
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace MyCoolCompanyApp
 {
-	public partial class App : Application
-	{
-		public App ()
-		{
+	public partial class App : PrismApplication
+    {
+        /* 
+ * The Xamarin Forms XAML Previewer in Visual Studio uses System.Activator.CreateInstance.
+ * This imposes a limitation in which the App class must have a default constructor. 
+ * App(IPlatformInitializer initializer = null) cannot be handled by the Activator.
+ */
+        public App() : this(null) { }
+
+        public App(IPlatformInitializer initializer) : base(initializer) { }
+
+        protected override async void OnInitialized()
+        {
             InitializeComponent();
-			// The root page of your application
-			//MainPage = new MyPeople();
-			//MainPage = new MyCoolCompanyPage();
-            MainPage = new NavigationPage (new RoutePowerX.Dlg3000());
-		}
 
-		protected override void OnStart ()
-		{
-			// Handle when your app starts
-		}
+            await NavigationService.NavigateAsync("NavigationPage/Dlg0000");
+        }
 
-		protected override void OnSleep ()
-		{
-			// Handle when your app sleeps
-		}
-
-		protected override void OnResume ()
-		{
-			// Handle when your app resumes
-		}
-	}
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<RoutePowerX.Dlg0000,RoutePowerX.VM0000>("Dlg0000");
+            containerRegistry.RegisterForNavigation<RoutePowerX.Dlg3000, RoutePowerX.VM3000>("Dlg3000");
+            containerRegistry.RegisterForNavigation<RoutePowerX.Dlg3010, RoutePowerX.VM3010>("Dlg3010");
+            containerRegistry.RegisterForNavigation<RoutePowerX.Dlg3300, RoutePowerX.VM3300>("Dlg3300");
+        }
+    }
 }
 

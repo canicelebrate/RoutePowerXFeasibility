@@ -6,11 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using Prism.Mvvm;
+using Prism.Commands;
+using Prism.Navigation;
 
 namespace MyCoolCompanyApp.RoutePowerX
 {
-    public class VM3010: INotifyPropertyChanged
+    public class VM3010: BindableBase
     {
+        #region infrastructure
+        INavigationService _navigationService;
+
+        #endregion
+
+
         #region fields 
         ObservableCollection<VM3010GridDataItem> items;
         VM3010GridDataItem selectedItem;
@@ -25,8 +34,7 @@ namespace MyCoolCompanyApp.RoutePowerX
             }
             set
             {
-                this.items = value;
-                OnPropertyChanged(nameof(Items));
+                SetProperty<ObservableCollection<VM3010GridDataItem>>(ref this.items, value, nameof(Items));
             }
         }
 
@@ -38,14 +46,44 @@ namespace MyCoolCompanyApp.RoutePowerX
             }
             set
             {
-                this.selectedItem = value;
-                OnPropertyChanged(nameof(SelectedItem));
+                SetProperty<VM3010GridDataItem>(ref this.selectedItem, value, nameof(SelectedItem));
             }
         }
         #endregion
 
-        public VM3010()
+        #region Commands
+        DelegateCommand _selectCustomerCmd;
+        public DelegateCommand SelectCustomerCmd
         {
+            get
+            {
+                return _selectCustomerCmd;
+            }
+            private set
+            {
+                _selectCustomerCmd = value;
+            }
+        }
+
+        DelegateCommand _exitCmd;
+        public DelegateCommand ExitCmd
+        {
+            get
+            {
+                return _exitCmd;
+            }
+            private set
+            {
+                _exitCmd = value;
+            }
+        }
+
+        #endregion
+
+        public VM3010(INavigationService navigationService)
+        {
+            _navigationService = navigationService;
+
             items = new ObservableCollection<VM3010GridDataItem>()
             {
                 new VM3010GridDataItem("ordersml.jpg","236296","PURVIS    TRACEY",1,1,1,true,"2225 BELMONT AVE","Charge Only","10000000000"),
@@ -53,25 +91,25 @@ namespace MyCoolCompanyApp.RoutePowerX
             };
 
             this.selectedItem = items[0];
+
+
+            this._selectCustomerCmd = new DelegateCommand(async () =>
+            {
+                await _navigationService.NavigateAsync("Dlg3000");
+            });
+
+            this._exitCmd = new DelegateCommand(async () =>
+            {
+                await navigationService.GoBackAsync();
+            });
         }
-
-        #region INotifyPropertyChanged implementation
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-        }
-
-        #endregion
 
 
     }
 
 
 
-    public class VM3010GridDataItem : INotifyPropertyChanged
+    public class VM3010GridDataItem : BindableBase
     {
         #region fields
         string imgSrc;
@@ -117,8 +155,7 @@ namespace MyCoolCompanyApp.RoutePowerX
             }
             set
             {
-                this.imgSrc = value;
-                OnPropertyChanged(nameof(ImgSrc));
+                SetProperty<String>(ref this.imgSrc, value, nameof(ImgSrc));
             }
         }
 
@@ -130,8 +167,7 @@ namespace MyCoolCompanyApp.RoutePowerX
             }
             set
             {
-                this.customerNumber = value;
-                OnPropertyChanged(nameof(CustomerNumber));
+                SetProperty<String>(ref this.customerNumber, value, nameof(CustomerNumber));
             }
         }
 
@@ -143,8 +179,7 @@ namespace MyCoolCompanyApp.RoutePowerX
             }
             set
             {
-                this.customerName = value;
-                OnPropertyChanged(nameof(CustomerName));
+                SetProperty<String>(ref this.customerName, value, nameof(CustomerName));
             }
         }
 
@@ -156,8 +191,7 @@ namespace MyCoolCompanyApp.RoutePowerX
             }
             set
             {
-                this.serviceFlag = value;
-                OnPropertyChanged(nameof(ServiceFlag));
+                SetProperty<int>(ref this.serviceFlag, value, nameof(ServiceFlag));
             }
         }
 
@@ -169,8 +203,7 @@ namespace MyCoolCompanyApp.RoutePowerX
             }
             set
             {
-                this.rsqDba = value;
-                OnPropertyChanged(nameof(RsqDba));
+                SetProperty<int>(ref this.rsqDba, value, nameof(RsqDba));
             }
         }
 
@@ -182,11 +215,7 @@ namespace MyCoolCompanyApp.RoutePowerX
             }
             set
             {
-                if (this.cstDba != value)
-                {
-                    this.cstDba = value;
-                    OnPropertyChanged(nameof(CstDba));
-                }
+                SetProperty<int>(ref this.cstDba, value, nameof(CstDba));
             }
         }
 
@@ -198,8 +227,7 @@ namespace MyCoolCompanyApp.RoutePowerX
             }
             set
             {
-                this.presold = value;
-                OnPropertyChanged(nameof(Presold));
+                SetProperty<bool>(ref this.presold, value, nameof(Presold));
             }
         }
 
@@ -212,8 +240,7 @@ namespace MyCoolCompanyApp.RoutePowerX
             }
             set
             {
-                this.address = value;
-                OnPropertyChanged(nameof(Address));
+                SetProperty<String>(ref this.address, value, nameof(Address));
             }
         }
 
@@ -226,8 +253,7 @@ namespace MyCoolCompanyApp.RoutePowerX
             }
             set
             {
-                this.payType = value;
-                OnPropertyChanged(nameof(PayType));
+                SetProperty<String>(ref this.payType, value, nameof(PayType));
             }
         }
 
@@ -239,20 +265,9 @@ namespace MyCoolCompanyApp.RoutePowerX
             }
             set
             {
-                this.phoneNumber = value;
-                OnPropertyChanged(nameof(PhoneNumber));
+                SetProperty<String>(ref this.phoneNumber, value, nameof(PhoneNumber));
             }
         }
 
-        #region INotifyPropertyChanged implementation
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-        }
-
-        #endregion
     }
 }

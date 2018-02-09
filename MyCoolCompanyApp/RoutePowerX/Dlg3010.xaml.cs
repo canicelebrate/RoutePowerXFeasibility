@@ -15,7 +15,7 @@ namespace MyCoolCompanyApp.RoutePowerX
 		public Dlg3010 ()
 		{
 			InitializeComponent ();
-            this.BindingContext = new VM3010();
+            //this.BindingContext = new VM3010();
 		}
 	}
 }

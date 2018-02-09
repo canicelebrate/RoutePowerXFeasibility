@@ -17,7 +17,7 @@ namespace MyCoolCompanyApp.RoutePowerX
         {
             InitializeComponent();
 
-            this.BindingContext = new RoutePowerX.VM3300();
+            //this.BindingContext = new RoutePowerX.VM3300();
         }
     }
 }

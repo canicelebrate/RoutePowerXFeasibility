@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using Prism.Commands;
+using Prism.Navigation;
 
 namespace MyCoolCompanyApp.RoutePowerX
 {
@@ -17,7 +19,7 @@ namespace MyCoolCompanyApp.RoutePowerX
         VM3300GridDataItem selectedItem;
         #endregion
 
-        public VM3300()
+        public VM3300(INavigationService navigationService)
         {
             selectedInvType = "Sales";
 
@@ -67,6 +69,26 @@ namespace MyCoolCompanyApp.RoutePowerX
             };
 
             this.selectedItem = this.items[0];
+
+
+            this.ExitCmd = new DelegateCommand(async () =>
+            {
+                await navigationService.GoBackAsync();
+            });
+        }
+
+
+        DelegateCommand _exitCmd;
+        public DelegateCommand ExitCmd
+        {
+            get
+            {
+                return _exitCmd;
+            }
+            private set
+            {
+                _exitCmd = value;
+            }
         }
 
         public ObservableCollection<string> InvTypes

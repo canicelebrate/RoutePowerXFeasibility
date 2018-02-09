@@ -2,7 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyCoolCompanyApp.RoutePowerX.Dlg0000"
-             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms">
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             Title="Dlg000">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -15,21 +18,21 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <controls:ImageButton Source="StartDay.jpg" ContentLayout="Top,5" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="0"  Grid.Column="0" Text="Start Day" >
+            <controls:ImageButton Source="StartDay.jpg" ContentLayout="Top,5" Orientation="ImageOnTop"  ImageWidthRequest="256" ImageHeightRequest="160" Grid.Row="0"  Grid.Column="0" Text="Start Day" >
             </controls:ImageButton>
-            <controls:ImageButton Source="Inventory.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="0" Grid.Column="1" Text="Inventory" >
+            <controls:ImageButton Source="Inventory.jpg" Orientation="ImageOnTop"  ImageWidthRequest="256" ImageHeightRequest="160" Grid.Row="0" Grid.Column="1" Text="Inventory" >
             </controls:ImageButton>
-            <controls:ImageButton Source="ServiceCustomer.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="1" Grid.Column="0" Text="Customer Ops" >
+            <controls:ImageButton Source="ServiceCustomer.jpg" Orientation="ImageOnTop"  ImageWidthRequest="256" ImageHeightRequest="160" Grid.Row="1" Grid.Column="0" Text="Customer Ops" Command="{Binding ServiceCustomerCmd}">
             </controls:ImageButton>
-            <controls:ImageButton Source="EndDay.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="1" Grid.Column="1" Text="End Day" >
+            <controls:ImageButton Source="EndDay.jpg" Orientation="ImageOnTop"  ImageWidthRequest="256" ImageHeightRequest="160" Grid.Row="1" Grid.Column="1" Text="End Day" >
             </controls:ImageButton>
-            <controls:ImageButton Source="Review.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="2" Grid.Column="0" Text="Review" >
+            <controls:ImageButton Source="Review.jpg" Orientation="ImageOnTop"  ImageWidthRequest="256" ImageHeightRequest="160" Grid.Row="2" Grid.Column="0" Text="Review" >
             </controls:ImageButton>
-            <controls:ImageButton Source="Information.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="2" Grid.Column="1" Text="Information" >
+            <controls:ImageButton Source="Information.jpg" Orientation="ImageOnTop"  ImageWidthRequest="256" ImageHeightRequest="160" Grid.Row="2" Grid.Column="1" Text="Information" >
             </controls:ImageButton>
-            <controls:ImageButton Source="TransmitData.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="3" Grid.Column="0" Text="Transmit Data" >
+            <controls:ImageButton Source="TransmitData.jpg" Orientation="ImageOnTop"  ImageWidthRequest="256" ImageHeightRequest="160" Grid.Row="3" Grid.Column="0" Text="Transmit Data" >
             </controls:ImageButton>
-            <controls:ImageButton Source="Setup.jpg" Orientation="ImageOnTop"  ImageWidthRequest="128" ImageHeightRequest="80" Grid.Row="3" Grid.Column="1" Text="Setup" >
+            <controls:ImageButton Source="Setup.jpg" Orientation="ImageOnTop"  ImageWidthRequest="256" ImageHeightRequest="160" Grid.Row="3" Grid.Column="1" Text="Setup" >
             </controls:ImageButton>
         </Grid>
     </ContentPage.Content>

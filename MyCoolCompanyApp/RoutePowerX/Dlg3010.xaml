@@ -3,11 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyCoolCompanyApp.RoutePowerX.Dlg3010"
              xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
-             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms">
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             Title="Dlg3010">
     <AbsoluteLayout>
         <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="SizeProportional">
             <dg:DataGrid x:Name="MyGrid" ItemsSource="{Binding Items}"  SelectionEnabled="True" SelectedItem="{Binding SelectedItem,Mode=TwoWay}"
-                   RowHeight="40" HeaderHeight="0" BorderColor="#CCCCCC" HeaderBackground="DarkGray" BackgroundColor="White" MinimumHeightRequest="300"  HeightRequest="500">
+                   RowHeight="40" HeaderHeight="0" BorderColor="#CCCCCC" HeaderBackground="DarkGray" BackgroundColor="White"  HeightRequest="300">
                 <dg:DataGrid.Columns>
                     <dg:DataGridColumn Title="Image" PropertyName="ImgSrc" Width="1.5*">
                         <dg:DataGridColumn.CellTemplate>
@@ -75,7 +78,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <controls:ImageButton Source="ExitDrLg.jpg" Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="65" Grid.Column="0" Text="Exit" >
+            <controls:ImageButton Source="ExitDrLg.jpg" Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="65" Grid.Column="0" Text="Exit" Command="{Binding ExitCmd}" >
             </controls:ImageButton>
 
             <controls:ImageButton Source="BinocsMd.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="65" Grid.Column="1" Text="Find" >
@@ -87,7 +90,7 @@
             <controls:ImageButton Source="NoIntlMd.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="65" Grid.Column="3" Text="NSale" >
             </controls:ImageButton>
 
-            <controls:ImageButton Source="SelectMd.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="65" Grid.Column="4" Text="Select" >
+            <controls:ImageButton Source="SelectMd.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="65" Grid.Column="4" Text="Select" Command="{Binding SelectCustomerCmd}" >
             </controls:ImageButton>
         </Grid>
     </AbsoluteLayout>

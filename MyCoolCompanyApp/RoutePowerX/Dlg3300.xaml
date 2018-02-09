@@ -4,6 +4,8 @@
              x:Class="MyCoolCompanyApp.RoutePowerX.Dlg3300"
              xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
              xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
              Title="Dlg3300">
     <AbsoluteLayout>
         <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="SizeProportional">
@@ -77,19 +79,19 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <controls:ImageButton Source="ExitDrLg.jpg" Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="80" Grid.Column="0" Text="Exit" >
+            <controls:ImageButton Source="ExitDrLg.jpg" Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="65" Grid.Column="0" Text="Exit" Command="{Binding ExitCmd}" >
             </controls:ImageButton>
 
-            <controls:ImageButton Source="More.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="80" Grid.Column="1" Text="More" >
+            <controls:ImageButton Source="More.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="65" Grid.Column="1" Text="More" >
             </controls:ImageButton>
 
-            <controls:ImageButton Source="AddItem.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="80" Grid.Column="2" Text="Add" >
+            <controls:ImageButton Source="AddItem.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="65" Grid.Column="2" Text="Add" >
             </controls:ImageButton>
 
-            <controls:ImageButton Source="History.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="80" Grid.Column="3" Text="Exit" >
+            <controls:ImageButton Source="History.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="65" Grid.Column="3" Text="Histroy" >
             </controls:ImageButton>
 
-            <controls:ImageButton Source="Detail.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="80" Grid.Column="4" Text="Detail" >
+            <controls:ImageButton Source="Detail.jpg"  Orientation="ImageOnTop"  ImageWidthRequest="80" ImageHeightRequest="65" Grid.Column="4" Text="Detail" >
             </controls:ImageButton>
         </Grid>
 

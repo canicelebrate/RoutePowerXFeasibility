@@ -4535,8 +4535,8 @@ namespace MyCoolCompanyApp.Droid
 			// aapt resource value: 0x7f0b0048
 			public const int list_item = 2131427400;
 			
-			// aapt resource value: 0x7f0b00b7
-			public const int masked = 2131427511;
+			// aapt resource value: 0x7f0b00b9
+			public const int masked = 2131427513;
 			
 			// aapt resource value: 0x7f0b00a5
 			public const int media_actions = 2131427493;
@@ -4739,6 +4739,9 @@ namespace MyCoolCompanyApp.Droid
 			// aapt resource value: 0x7f0b0017
 			public const int showTitle = 2131427351;
 			
+			// aapt resource value: 0x7f0b00b6
+			public const int sliding_tabs = 2131427510;
+			
 			// aapt resource value: 0x7f0b0076
 			public const int smallLabel = 2131427446;
 			
@@ -4814,6 +4817,9 @@ namespace MyCoolCompanyApp.Droid
 			// aapt resource value: 0x7f0b0057
 			public const int title_template = 2131427415;
 			
+			// aapt resource value: 0x7f0b00b7
+			public const int toolbar = 2131427511;
+			
 			// aapt resource value: 0x7f0b0029
 			public const int top = 2131427369;
 			
@@ -4838,8 +4844,8 @@ namespace MyCoolCompanyApp.Droid
 			// aapt resource value: 0x7f0b000e
 			public const int view_offset_helper = 2131427342;
 			
-			// aapt resource value: 0x7f0b00b6
-			public const int visible = 2131427510;
+			// aapt resource value: 0x7f0b00b8
+			public const int visible = 2131427512;
 			
 			// aapt resource value: 0x7f0b0097
 			public const int volume_item_container = 2131427479;
@@ -5142,7 +5148,13 @@ namespace MyCoolCompanyApp.Droid
 			public const int support_simple_spinner_dropdown_item = 2130903109;
 			
 			// aapt resource value: 0x7f030046
-			public const int week = 2130903110;
+			public const int Tabbar = 2130903110;
+			
+			// aapt resource value: 0x7f030047
+			public const int Toolbar = 2130903111;
+			
+			// aapt resource value: 0x7f030048
+			public const int week = 2130903112;
 			
 			static Layout()
 			{
@@ -5391,6 +5403,9 @@ namespace MyCoolCompanyApp.Droid
 			
 			// aapt resource value: 0x7f0a0174
 			public const int Animation_Design_BottomSheetDialog = 2131362164;
+			
+			// aapt resource value: 0x7f0a018f
+			public const int AppCompatDialogStyle = 2131362191;
 			
 			// aapt resource value: 0x7f0a00b6
 			public const int Base_AlertDialog_AppCompat = 2131361974;
@@ -5877,6 +5892,12 @@ namespace MyCoolCompanyApp.Droid
 			
 			// aapt resource value: 0x7f0a0012
 			public const int CardView_Light = 2131361810;
+			
+			// aapt resource value: 0x7f0a018d
+			public const int MainTheme = 2131362189;
+			
+			// aapt resource value: 0x7f0a018e
+			public const int MainTheme_Base = 2131362190;
 			
 			// aapt resource value: 0x7f0a0031
 			public const int Platform_AppCompat = 2131361841;
