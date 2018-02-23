@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyCoolCompanyApp.ListViewNextRow"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:controls="clr-namespace:MyCoolCompanyApp.Controls"
+              xmlns:triggers="clr-namespace:MyCoolCompanyApp.TriggerActions"
+             xmlns:behaviors="clr-namespace:MyCoolCompanyApp.Behaviors" Title="Next Row Demo">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Key="_listView" x:Name="DataList"  ItemsSource="{Binding Items}" HeightRequest="200">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Label" WidthRequest="60"></Label>
+                                <controls:CustomReturnEntry Keyboard="Numeric" Text="{Binding Value}" AutomationId="1" HorizontalOptions="FillAndExpand"  ReturnType="{Binding ReturnType}">
+                                    <Entry.Behaviors>
+                                        <behaviors:FocusEntryFromSelectedRowBehavior BindingContext="{x:Reference DataList}"/>
+                                    </Entry.Behaviors>
+                                    <Entry.Triggers>
+                                        <EventTrigger Event="ReturnKeyPressed">
+                                            <triggers:EnterKeyPressedTriggerAction TargetFocusElement="{x:Reference SecondEntry}"/>
+                                        </EventTrigger>
+                                    </Entry.Triggers>
+                                </controls:CustomReturnEntry>
+                                <controls:CustomReturnEntry x:Name="SecondEntry" Keyboard="Numeric" Text="{Binding Value2}" AutomationId="2" HorizontalOptions="FillAndExpand"   ReturnType="{Binding ReturnType}" SelectAllOnFocus="{Binding SelectAllOnFocus}" >
+                                    <Entry.Triggers>
+                                        <EventTrigger Event="ReturnKeyPressed">
+                                            <triggers:EnterKeyPressedTriggerAction ParentListView="{x:Reference DataList}"/>
+                                        </EventTrigger>
+                                    </Entry.Triggers>
+                                </controls:CustomReturnEntry>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

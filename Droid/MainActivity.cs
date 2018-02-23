@@ -23,6 +23,9 @@ namespace MyCoolCompanyApp.Droid
             base.OnCreate (bundle);
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
+            MyCoolCompanyApp.Droid.Renders.CustomReturnEntryRenderer.Init();
+
+
             try
             {
                 LoadApplication(new App(new AndroidInitializer()));

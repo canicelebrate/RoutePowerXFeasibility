@@ -26,7 +26,10 @@ namespace MyCoolCompanyApp
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/Dlg0000");
+            //await NavigationService.NavigateAsync("NavigationPage/Dlg0000");
+            //await NavigationService.NavigateAsync("NavigationPage/ListViewNextRow");
+            await NavigationService.NavigateAsync("NavigationPage/Dlg9340");
+
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -36,6 +39,10 @@ namespace MyCoolCompanyApp
             containerRegistry.RegisterForNavigation<RoutePowerX.Dlg3000, RoutePowerX.VM3000>("Dlg3000");
             containerRegistry.RegisterForNavigation<RoutePowerX.Dlg3010, RoutePowerX.VM3010>("Dlg3010");
             containerRegistry.RegisterForNavigation<RoutePowerX.Dlg3300, RoutePowerX.VM3300>("Dlg3300");
+            containerRegistry.RegisterForNavigation<RoutePowerX.Dlg9340, RoutePowerX.VM9340>("Dlg9340");
+            
+
+            containerRegistry.RegisterForNavigation<ListViewNextRow, ViewModels.ListViewNextRowViewModel>("ListViewNextRow");
         }
     }
 }
