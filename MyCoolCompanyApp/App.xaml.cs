@@ -7,6 +7,7 @@ using Xamarin.Forms.Xaml;
 using Prism;
 using Prism.Ioc;
 using XLabs.Forms.Services;
+using Prism.Logging;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace MyCoolCompanyApp
@@ -34,6 +35,10 @@ namespace MyCoolCompanyApp
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.Register<ILoggerFacade, Logging.XLoggerFacade>();
+            containerRegistry.Register<Logging.IXLoggerFacade, Logging.XLoggerFacade>();
+            
+
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<RoutePowerX.Dlg0000,RoutePowerX.VM0000>("Dlg0000");
             containerRegistry.RegisterForNavigation<RoutePowerX.Dlg3000, RoutePowerX.VM3000>("Dlg3000");

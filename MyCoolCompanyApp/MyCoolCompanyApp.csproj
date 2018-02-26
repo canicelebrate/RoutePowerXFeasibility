@@ -13,11 +13,13 @@
 
   <ItemGroup>
     <PackageReference Include="PCLStorage" Version="1.0.2" />
+    <PackageReference Include="Plugin.UserDialogs" Version="1.0.0" />
     <PackageReference Include="Xamarin.Controls.SignaturePad.Forms" Version="2.3.0" />
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
     <PackageReference Include="Prism.Autofac.Forms" Version="7.0.0.362" />
     <PackageReference Include="Xamarin.Forms.DataGrid" Version="2.0.0" />
     <PackageReference Include="XLabs.Forms" Version="2.0.5782" />
+    <PackageReference Include="XLogNS" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
